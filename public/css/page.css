@@ -1,0 +1,349 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+/*Login form*/
+
+#submit{
+  min-width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pad-section {
+    padding: 50px 0;
+}
+
+.pad-section img {
+    width: 100%;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+#home {
+    background: url(../images/slide1.JPG) no-repeat center center;
+    display: table;
+    height: 100%;
+    /*position: relative;*/
+    width: 100%;
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    background-size: cover;
+    opacity: 0.85;
+}
+
+
+#about {
+  color: #666;
+  background-color:white;
+  padding:50px 0px;
+  text-align: left;
+}
+#about h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+#about p {
+  padding: 20px 20px;
+  font-size: 18px;
+}
+
+
+#information {
+    font-family: 'Raleway', sans-serif;
+    background: url(../images/slide2.JPG) no-repeat center center;
+    display: table;
+    height: 800px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.overlay-md {
+    background-color: #000;
+    opacity: 0.65;
+    border: none;
+    color: #FFF;
+    padding: 40px;
+    margin: 80px 0;
+    font-size: 18px;
+}
+
+.maintext h2{
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #555;
+  margin-bottom: 40px;
+}
+.maintext p,
+.maintext ul,
+.maintext h4,
+.maintext .twitter-timeline{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+/*Concerts*/
+
+.concerts{
+  margin: 40px 0;
+}
+.concerts li{
+  list-style-type: none;
+  color: #333;
+  padding: 20px 20px 10px 20px;
+  border-bottom: 1px solid #EEE;
+}
+.concerts li a{
+  color: #00B8D4;
+  border-bottom: 1px dotted #777;
+  text-decoration: none;
+}
+.concerts li .date{
+  font-weight: bold;
+}
+.concerts li .title{
+  color: #00B8D4;
+  font-size: 18px;
+}
+.concerts li .about{
+
+}
+.concerts li .more{
+  display: inline-block;
+  float: right;
+}
+
+
+/*Social*/
+
+.social .social-icons{
+  text-align: center;
+  margin: 40px 0;
+}
+.social .social-icons img{
+  width: 40px;
+  margin: 0 20px;
+}
+.social .twitter-block{
+  margin: 50px auto;
+  text-align: center;
+}
+
+/*Gallery*/
+
+#gallery{
+  margin-bottom: 100px;
+  text-align: center;
+}
+#gallery img{
+  /*height: 300px;*/
+  width: 100%;
+  margin: 0 auto;
+}
+#gallery img.portrait{
+  /*max-width: 16.66%;*/
+}
+#gallery .img-container {
+  background-color: #000;
+}
+#gallery .anchor-block {
+  display: block;
+}
+#gallery .album {
+  opacity: 1;
+  /*transition: .5s ease;*/
+  backface-visibility: visible;
+}
+#gallery .album-title {
+  /*transition: .5s ease;*/
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, -50%);
+  padding: 20px 0;
+}
+#gallery .text {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 18px;
+  /*padding: 16px 32px;*/
+}
+#gallery .img-container:hover .album {
+  opacity: 0.8;
+}
+
+
+
+/*Contact*/
+
+#contact{
+  text-align: center;
+  margin-bottom: 100px;
+}
+#contact img{
+  padding: 0 20px;
+}
+
+/*General*/
+a {
+  color: #00B8D4;
+  text-decoration: none;
+}
+a:hover {
+  color: #00B8D4;
+  text-decoration: none;
+}
+.blue{
+  color: #00B8D4; 
+}
+.clear-paddings{
+  padding: 0;
+}
+.clear-margins{
+  margin: 0;
+}
+.gap-below{
+  margin-bottom: 40px;
+}
+#profile{
+  color: #333;
+  padding: 10px;
+}
+#profile h4{
+  color: #00B8D4; 
+  margin-top: 40px;
+}
+#profile h4:first-of-type{
+  margin-top: 0px;
+}
+@media(min-width:768px) {
+  #home, #information{
+    background-attachment: fixed;
+ }
+ #profile{
+    color: #333;
+    padding: 40px 100px;
+  }
+}
+.sign {
+  text-align: right;
+  font-weight: bold;
+  font-style: italic;
+  color: #00B8D4;
+}
+.sign a{
+  color: inherit;
+}
+
+/*Masonry*/
+
+.masonry {
+  -moz-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -moz-column-gap: 30px;
+  -webkit-column-gap: 30px;
+  column-gap: 30px;
+  -moz-column-fill: initial;
+  -webkit-column-fill: initial;
+  column-fill: initial;
+}
+.masonry .brick {
+  margin-bottom: 30px;
+}
+.masonry .brick img {
+  max-width: 100%;
+  -moz-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+.masonry.bordered {
+  -moz-column-rule: 1px solid #eee;
+  -webkit-column-rule: 1px solid #eee;
+  column-rule: 1px solid #eee;
+  -moz-column-gap: 50px;
+  -webkit-column-gap: 50px;
+  column-gap: 50px;
+}
+.masonry.bordered .brick {
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+}
+.masonry.gutterless {
+  -moz-column-gap: 0;
+  -webkit-column-gap: 0;
+  column-gap: 0;
+}
+.masonry.gutterless .brick {
+  margin-bottom: 0;
+}
+
+.span {
+  -moz-column-span: all;
+  -webkit-column-span: all;
+  column-span: all;
+  *margin: 30px 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .masonry {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+

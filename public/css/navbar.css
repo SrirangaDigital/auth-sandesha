@@ -1,0 +1,25 @@
+.navbar-default{
+	background-color: transparent;
+	border: none;
+}
+.navbar-default .navbar-nav>li>a{
+	color: #FFF;
+	border-bottom: 1px dotted transparent;	
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+	color: #FFF;
+	border-bottom: 1px dotted #FFF;	
+}
+.navbar-default .navbar-nav.invert>li>a{
+	color: #444;
+}
+.navbar-default .navbar-nav.invert>li>a:focus, .navbar-default .navbar-nav.invert>li>a:hover{
+	color: #444;
+	border-bottom: 1px dotted #444;	
+}
+ul.navbar-nav {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+ul.navbar-nav.invert {
+	background-color: transparent;
+}
