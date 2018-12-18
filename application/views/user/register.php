@@ -3,6 +3,7 @@
 	$(document).ready(function() {
 
 		$( "#registerForm" ).submit(submitRegisterForm);
+		$('#registerForm small').hide()		
 	});
 
 </script>
@@ -32,8 +33,8 @@
 					<input required type="password" class="form-control" name="password" id="password" placeholder="Password">
 					<small id="passwordHelp" class="form-text text-muted">Password</small>
 				</div>
-				<input type="hidden" name="returnUrl" id="returnUrl" value="<?=$data['returnUrl']?>">
-				<button id="submit" type="submit" class="btn btn-primary">Submit</button>
+				<input type="hidden" name="returnUrl" id="returnUrl" value="<?=$data['returnUrl']?>"><br />
+				<button id="submit" type="submit" class="btn btn-primary">Register</button>
 			</form>
 		</div>
 	</div>
