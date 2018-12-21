@@ -12,18 +12,18 @@ class user extends Controller {
 		var_dump($_SESSION);
 	}
 	
-	public function login($query = [], $type = '') {
+	public function getIn($query = [], $type = '') {
 
 		$returnUrl = isset($query['returnUrl']) ? $query['returnUrl'] : DEFAULT_RETURN_URL;
 
 		$data['type'] = $type;
 		$data['returnUrl'] = $returnUrl;
-		$this->view('user/login', $data);
+		$this->view('user/getIn', $data);
 	}
 
 	public function logout($query = []) {
 
-		// Ideally this work should be done by the api, die to lack of inheritance, it is done here for now.
+		// Ideally this work should be done by the api, due to lack of inheritance, it is done here for now.
 		$data['returnUrl'] = isset($query['returnUrl']) ? $query['returnUrl'] : DEFAULT_RETURN_URL;
 		try {
 		    $this->auth->logOutEverywhere();
@@ -55,14 +55,6 @@ class user extends Controller {
 	public function changePassword() {
 
 		$this->view('user/changePassword');
-	}
-
-	public function register($query = []){
-
-		$returnUrl = isset($query['returnUrl']) ? $query['returnUrl'] : DEFAULT_RETURN_URL;
-
-		$data['returnUrl'] = $returnUrl;
-		$this->view('user/register', $data);
 	}
 
 	public function assignRoleAsSubscriber($query, $email) {

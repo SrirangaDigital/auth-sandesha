@@ -22,7 +22,7 @@ function submitLoginForm(event){
 
 	event.preventDefault();
 
-	$('#submit').html('<i class="fa fa-spinner fa-spin"></i>').prop('disabled', true);
+	$('#lsubmit').html('<i class="fa fa-spinner fa-spin"></i>').prop('disabled', true);
 	
 	$.post( base_url + "api/login", $('#loginForm').serialize(), function( data ) {
 	 	
@@ -32,8 +32,8 @@ function submitLoginForm(event){
 		}
 		else{
 
-			$( "#result" ).html( data ).removeClass( 'hide' );
-			$('#submit').html('Submit').prop('disabled', false);
+			$( "#lresult" ).html( data ).removeClass( 'hide' );
+			$('#lsubmit').html('Submit').prop('disabled', false);
 		}
 	});
 }

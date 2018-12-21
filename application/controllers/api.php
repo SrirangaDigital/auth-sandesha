@@ -13,12 +13,12 @@ class api extends Controller {
 
 		try {
 
-		    $this->auth->login($postData['email'], $postData['password']);
+		    $this->auth->login($postData['lemail'], $postData['lpassword']);
 
 		    $this->model->loadSessionVariables($postData);
     		$_SESSION['auth_roles_assigned'] = $this->auth->getRoles();
 
-		    echo($postData['returnUrl']);
+		    echo($postData['lreturnUrl']);
 		}
 		catch (\Delight\Auth\InvalidEmailException $e) {
 		    
