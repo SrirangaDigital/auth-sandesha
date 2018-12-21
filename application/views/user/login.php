@@ -26,7 +26,7 @@ $(document).ready(function() {
 				<div class="form-group">
 					<label for="exampleInputPassword1">Password</label>
 					<input required type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-					<small id="emailHelp" class="text-right form-text text-muted"><a href="<?=BASE_URL?>user/resetPassword">Forgot password?</a></small>
+					<small id="forgotPasswordHelp" class="text-right form-text text-muted"><a href="<?=BASE_URL?>user/resetPassword">Forgot password?</a></small>
 				</div>
 				<input type="hidden" name="type" id="type" value="<?=$data['type']?>">
 				<input type="hidden" name="returnUrl" id="returnUrl" value="<?=$data['returnUrl']?>">

@@ -64,6 +64,20 @@ class user extends Controller {
 		$data['returnUrl'] = $returnUrl;
 		$this->view('user/register', $data);
 	}
+
+	public function assignRoleAsSubscriber($query, $email) {
+
+		try {
+
+		    $this->auth->admin()->addRoleForUserByEmail($email, \Delight\Auth\Role::SUBSCRIBER);
+		    array_push($_SESSION['auth_roles_assigned'], 'SUBSCRIBER');
+		}
+
+		catch (\Delight\Auth\InvalidEmailException $e) {
+
+		    echo 'Unknown email address';
+		}
+	}
 }
 
 ?>

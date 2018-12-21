@@ -122,8 +122,6 @@ class api extends Controller {
 
 		    $postData['id'] = $this->auth->admin()->createUser($postData['email'], $postData['password'], $postData['username']);
 			$this->model->insertUserDetails($postData);
-			
-		    echo $postData['returnUrl'];
 		}
 
 		catch (\Delight\Auth\InvalidEmailException $e) {
@@ -135,41 +133,21 @@ class api extends Controller {
 		catch (\Delight\Auth\UserAlreadyExistsException $e) {
 		    echo 'User already exists';
 		}
-	}
-
-	public function createAdmin() {
-
-		$adminEmail = 'arjun.kashyap@srirangadigital.com';
 
 		try {
-		    $userId = $this->auth->admin()->createUserWithUniqueUsername($adminEmail, 'xxx', 'admin');
+		    
+		    $this->auth->admin()->logInAsUserByEmail($postData['email']);
+		    $_SESSION['auth_roles_assigned'] = [];
+		    echo $postData['returnUrl'];		    
 		}
 		catch (\Delight\Auth\InvalidEmailException $e) {
-		    echo 'invalid email address';
+		    
+		    echo 'Unknown email address';
 		}
-		catch (\Delight\Auth\InvalidPasswordException $e) {
-		    echo 'invalid password';
+		catch (\Delight\Auth\EmailNotVerifiedException $e) {
+		    
+		    echo 'Email address not verified';
 		}
-		catch (\Delight\Auth\UserAlreadyExistsException $e) {
-		    echo 'user already exists';
-		}
-		catch (\Delight\Auth\DuplicateUsernameException $e) {
-		    echo 'username not unique';
-		}
-
-		try {
-		    $this->auth->admin()->addRoleForUserByEmail($adminEmail, \Delight\Auth\Role::ADMIN);
-		}
-		catch (\Delight\Auth\InvalidEmailException $e) {
-		    die('Unknown email address');
-		}
-
-		// try {
-		//     $this->auth->admin()->deleteUserByEmail($adminEmail);
-		// }
-		// catch (\Delight\Auth\InvalidEmailException $e) {
-		//     die('Unknown email address');
-		// }
 	}
 
 	public function confirmEmail() {
@@ -212,42 +190,7 @@ class api extends Controller {
 		}
 	}
 
-	public function check() {
-
-		$email = 'arjun.kashyap1@yahoo.co.in';
-		$password = 'test123';
-		$username = 'arjunkashyap1';
-
-		try {
-		    // $userId = $this->auth->admin()->createUser($email, $password, $username);
-
-			$emailID = $this->auth->getEmail();
-			echo $emailID;
-
-			$this->auth->changeEmail('arjun.kashyap@srirangadigital.com', function ($selector, $token) {
-
-				var_dump($selector);
-				var_dump($token);
-	            // send `$selector` and `$token` to the user (e.g. via email to the *new* address)
-	        });
-
-
-		    // echo('we have signed up a new user with the ID ' . $userId);
-		}
-		catch (\Delight\Auth\InvalidEmailException $e) {
-		    echo 'invalid email address';
-		}
-		catch (\Delight\Auth\InvalidPasswordException $e) {
-		    echo 'invalid password';
-		}
-		catch (\Delight\Auth\UserAlreadyExistsException $e) {
-		    echo 'user already exists';
-		}
-
-		// var_dump($this->auth->admin()->getRolesForUserById('1'));
-	}
-
-	public function changePassword() {
+	private function changePassword() {
 
 		$postData = $this->model->getPostData();
 
@@ -270,10 +213,5 @@ class api extends Controller {
 			echo('Too many requests');
 		}
 	}
-
-	public function insertUserDetails($postData) {
-
-	}
 }
-
 ?>
