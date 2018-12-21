@@ -14,8 +14,8 @@ class api extends Controller {
 		try {
 
 		    $this->auth->login($postData['lemail'], $postData['lpassword']);
-
-		    $this->model->loadSessionVariables($postData);
+		    $this->model->loadSessionVariables();
+		    
     		$_SESSION['auth_roles_assigned'] = $this->auth->getRoles();
 
 		    echo($postData['lreturnUrl']);

@@ -7,10 +7,17 @@ class apiModel extends Model {
 		parent::__construct();
 	}
 
-	public function loadSessionVariables($data) {
+	public function loadSessionVariables() {
 
 		// To be used later
-		//$this->db->getData(USERDETAILS_TABLE, $this->dbh, $data);
+
+		$sth = $this->dbh->prepare('SELECT * FROM ' . USERDETAILS_TABLE . ' WHERE id=:id');
+		$sth->bindParam(':id', $_SESSION['auth_user_id']);
+		
+		$sth->execute();
+		$result = $sth->fetch(PDO::FETCH_ASSOC);
+
+		$_SESSION['user_details'] = $result;
 	}
 
 	public function insertUserDetails($data){
