@@ -62,7 +62,7 @@ class user extends Controller {
 		try {
 
 		    $this->auth->admin()->addRoleForUserByEmail($email, \Delight\Auth\Role::SUBSCRIBER);
-		    array_push($_SESSION['auth_roles_assigned'], 'SUBSCRIBER');
+		    $this->logout();
 		}
 
 		catch (\Delight\Auth\InvalidEmailException $e) {
