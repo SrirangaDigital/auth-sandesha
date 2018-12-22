@@ -117,7 +117,7 @@ class api extends Controller {
 
 		$postData = $this->model->getPostData();
 		$postData['username'] = '';
-
+		
 		try {
 
 		    $postData['id'] = $this->auth->admin()->createUser($postData['email'], $postData['password'], $postData['username']);
@@ -138,6 +138,8 @@ class api extends Controller {
 		    
 		    $this->auth->admin()->logInAsUserByEmail($postData['email']);
 		    $_SESSION['auth_roles_assigned'] = [];
+			$this->model->loadSessionVariables();
+
 		    echo $postData['returnUrl'];		    
 		}
 		catch (\Delight\Auth\InvalidEmailException $e) {

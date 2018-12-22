@@ -18,6 +18,10 @@ class apiModel extends Model {
 		$result = $sth->fetch(PDO::FETCH_ASSOC);
 
 		$_SESSION['user_details'] = $result;
+
+		// Include subscription details here, doing it here for the time being
+		$isSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'];
+		if($this->getDataFromCurl($isSubscriberUrl) == SUCCESS_PHRASE) $_SESSION['subscription_type'] = 'subscriber';
 	}
 
 	public function insertUserDetails($data){

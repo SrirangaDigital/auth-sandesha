@@ -37,6 +37,17 @@ class Model {
 		}
 	}
 
+	public function getDataFromCurl($url) {
+
+		$curl = curl_init($url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, True);
+		curl_setopt($curl, CURLOPT_COOKIE, True);
+		$result = curl_exec($curl);
+		curl_close($curl);
+
+		return $result;
+	}
+
 	public function preProcessPOST ($data) {
 
 		return array_map("trim", $data);
