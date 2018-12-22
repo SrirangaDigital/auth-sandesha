@@ -16,8 +16,14 @@ $(document).ready(function() {
 		}
 	});
 
-	// Show Registration form by default 
-	$( "#signUp" ).trigger( "click" );
+	var getInType = '<?=$data['type']?>';
+
+	if(getInType == 'in')
+		$( "#signIn" ).trigger( "click" );
+	else
+		// Show Registration form by default
+		$( "#signUp" ).trigger( "click" );
+
 
 	$( "#registerForm" ).submit(submitRegisterForm);
 	$( "#loginForm" ).submit(submitLoginForm);

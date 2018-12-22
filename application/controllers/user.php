@@ -14,10 +14,9 @@ class user extends Controller {
 	
 	public function getIn($query = [], $type = '') {
 
-		$returnUrl = isset($query['returnUrl']) ? $query['returnUrl'] : DEFAULT_RETURN_URL;
-		
-		$data['type'] = $type;
-		$data['returnUrl'] = $returnUrl;
+		$data['returnUrl'] = (isset($query['returnUrl'])) ? $query['returnUrl'] : DEFAULT_RETURN_URL;
+		$data['type'] = (isset($query['type'])) ? $query['type'] : DEFAULT_GETIN_TYPE;
+
 		$this->view('user/getIn', $data);
 	}
 
