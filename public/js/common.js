@@ -4,7 +4,7 @@ function submitRegisterForm(event){
 
 	$('#submit').html('<i class="fa fa-spinner fa-spin"></i>').prop('disabled', true);
 	
-	$.post( base_url + "api/register", $('#registerForm').serialize(), function( data ) {
+	$.post( base_url + "api/register", $('#signUpForm').serialize(), function( data ) {
 		
 		if(data.match(/^http[s]*:\/\/.*\/$/)) {
 
@@ -24,7 +24,7 @@ function submitLoginForm(event){
 
 	$('#lsubmit').html('<i class="fa fa-spinner fa-spin"></i>').prop('disabled', true);
 	
-	$.post( base_url + "api/login", $('#loginForm').serialize(), function( data ) {
+	$.post( base_url + "api/login", $('#signInForm').serialize(), function( data ) {
 	 	
 		if(data.match(/^http[s]*:\/\/.*\/$/)) {
 

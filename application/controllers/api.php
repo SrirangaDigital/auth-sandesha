@@ -10,7 +10,7 @@ class api extends Controller {
 	public function login() {
 
 		$postData = $this->model->getPostData();
-
+		
 		try {
 
 		    $this->auth->login($postData['lemail'], $postData['lpassword']);
