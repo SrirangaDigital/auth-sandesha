@@ -55,20 +55,6 @@ class user extends Controller {
 
 		$this->view('user/changePassword');
 	}
-
-	public function assignRoleAsSubscriber($query, $email) {
-
-		try {
-
-		    $this->auth->admin()->addRoleForUserByEmail($email, \Delight\Auth\Role::SUBSCRIBER);
-		    $this->logout();
-		}
-
-		catch (\Delight\Auth\InvalidEmailException $e) {
-
-		    echo 'Unknown email address';
-		}
-	}
 }
 
 ?>
