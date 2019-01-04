@@ -20,7 +20,7 @@ class apiModel extends Model {
 		$_SESSION['user_details'] = $result;
 
 		// Include subscription details here, doing it here for the time being
-		$isSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'];
+		$isSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'] . '&type=online';
 		if($this->getDataFromCurl($isSubscriberUrl) == SUCCESS_PHRASE) $_SESSION['subscription_type'] = 'subscriber';
 	}
 
