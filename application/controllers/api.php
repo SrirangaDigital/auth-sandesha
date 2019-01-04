@@ -122,6 +122,23 @@ class api extends Controller {
 
 		    $postData['id'] = $this->auth->admin()->createUser($postData['email'], $postData['password'], $postData['username']);
 			$this->model->insertUserDetails($postData);
+
+			try {
+			    
+			    $this->auth->admin()->logInAsUserByEmail($postData['email']);
+			    $_SESSION['auth_roles_assigned'] = [];
+				$this->model->loadSessionVariables();
+
+			    echo $postData['returnUrl'];		    
+			}
+			catch (\Delight\Auth\InvalidEmailException $e) {
+			    
+			    echo 'Unknown email address';
+			}
+			catch (\Delight\Auth\EmailNotVerifiedException $e) {
+			    
+			    echo 'Email address not verified';
+			}
 		}
 
 		catch (\Delight\Auth\InvalidEmailException $e) {
@@ -132,23 +149,6 @@ class api extends Controller {
 		}
 		catch (\Delight\Auth\UserAlreadyExistsException $e) {
 		    echo 'User already exists';
-		}
-
-		try {
-		    
-		    $this->auth->admin()->logInAsUserByEmail($postData['email']);
-		    $_SESSION['auth_roles_assigned'] = [];
-			$this->model->loadSessionVariables();
-
-		    echo $postData['returnUrl'];		    
-		}
-		catch (\Delight\Auth\InvalidEmailException $e) {
-		    
-		    echo 'Unknown email address';
-		}
-		catch (\Delight\Auth\EmailNotVerifiedException $e) {
-		    
-		    echo 'Email address not verified';
 		}
 	}
 
