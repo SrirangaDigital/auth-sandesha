@@ -48,7 +48,7 @@ function submitPasswordResetForm(event){
 	 
 		if(data === success_phrase){
 
-			$( "#result" ).html( 'An email has been sent to your address.').removeClass('alert-danger').addClass('alert-success').removeClass( 'hide' );
+			$( "#result" ).html( 'An email has been sent to your address. Follow the link there to reset password.').removeClass('alert-danger').addClass('alert-success').removeClass( 'hide' );
 		}	
 		else{
 

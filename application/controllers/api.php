@@ -47,7 +47,7 @@ class api extends Controller {
 		    	$this->auth->forgotPassword($postData['email'], function ($selector, $token) use ($postData){
 					
 					// Send mail
-					$this->model->sendLetterToPostman($postData['email'], SUBSCRIPTION_URL . 'subscription/index?s=' . $selector . '&t=' . $token . '&type=reset');
+					$this->model->sendLetterToPostman($postData['email'], DEFAULT_RETURN_URL . 'user/resetPassword?s=' . $selector . '&t=' . $token);
 			    	echo SUCCESS_PHRASE;
 
 		    	});
