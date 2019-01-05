@@ -46,15 +46,15 @@ function submitPasswordResetForm(event){
 	
 	$.post( base_url + "api/initiateResetPassword", $('#passwordResetForm').serialize(), function( data ) {
 	 
-		if(data.match(/^http[s]*:\/\/.*$/))
-			
-			// Mail will be sent here
-			$( "#result" ).html( 'An email has been sent to your address. Click the link there. ' + data ).removeClass('alert-danger').addClass('alert-success').removeClass( 'hide' );
-			// window.location.replace(data);
+		if(data === success_phrase){
+
+			$( "#result" ).html( 'An email has been sent to your address.').removeClass('alert-danger').addClass('alert-success').removeClass( 'hide' );
+		}	
 		else{
 
 			$( "#result" ).html( data ).removeClass( 'hide' );
 		}
+
 		$('#submit').html('Submit').prop('disabled', false);
 	});
 }

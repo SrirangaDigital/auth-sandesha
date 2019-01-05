@@ -40,14 +40,18 @@ class api extends Controller {
 
 	public function initiateResetPassword() {
 
-		$postData = $this->model->getPostData();
-
+		
 		try {
-		    $this->auth->forgotPassword($postData['email'], function ($selector, $token) {
+				$postData = $this->model->getPostData();
 				
-				// Send mail		        
-		        echo (BASE_URL . 'user/getResetPassword?s=' . $selector . '&t=' . $token);
-		    });
+		    	$this->auth->forgotPassword($postData['email'], function ($selector, $token) use ($postData){
+					
+					// Send mail
+					$this->model->sendLetterToPostman($postData['email'], SUBSCRIPTION_URL . 'subscription/index?s=' . $selector . '&t=' . $token . '&type=reset');
+			    	echo SUCCESS_PHRASE;
+
+		    	});
+
 		}
 		catch (\Delight\Auth\InvalidEmailException $e) {
 		    echo ('invalid email address');
@@ -59,7 +63,7 @@ class api extends Controller {
 		    echo ('password reset is disabled');
 		}
 		catch (\Delight\Auth\TooManyRequestsException $e) {
-		    echo ('too many requests');
+		    echo ('An email have been already sent to your email, Please check out');
 		}
 	}
 
