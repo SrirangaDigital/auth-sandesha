@@ -196,7 +196,7 @@ class api extends Controller {
 		}
 	}
 
-	private function changePassword() {
+	public function changePassword() {
 
 		$postData = $this->model->getPostData();
 
@@ -212,7 +212,7 @@ class api extends Controller {
 		}
 		catch (\Delight\Auth\InvalidPasswordException $e) {
 			
-			echo('Invalid password(s)');
+			echo('Old password not matching');
 		}
 		catch (\Delight\Auth\TooManyRequestsException $e) {
 			

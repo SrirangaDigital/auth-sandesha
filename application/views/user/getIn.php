@@ -37,8 +37,8 @@ $(document).ready(function() {
 
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-md-6 form">
-			<div class="row gap-above">
+		<div class="col-md-6">
+			<div class="row">
 				<div class="col-6 custom text-center">
 					<h5><a class="trigger" id="signUp">Sign Up</a></h5>
 				</div>

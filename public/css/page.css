@@ -7,7 +7,7 @@ body, html {
 
 /*Login form*/
 
-#signUpForm input, #signInForm input{
+#signUpForm input, #signInForm, #passwordChangeForm, #passwordResetForm input{
   height: 40px;
   font-size: 15px;
 }
@@ -17,10 +17,6 @@ body, html {
   min-height: 50px;
   color: white;
   background-color: #4682B4;
-}
-.form{
-  border: 1px solid #ccc;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2)
 }
 .btn{
   width: 100px !important;
