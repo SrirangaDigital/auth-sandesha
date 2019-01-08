@@ -46,7 +46,18 @@ class apiModel extends Model {
 		//return $_SESSION['_internal_user_info'];
 	}
 
-	public function sendLetterToPostman ($email, $url) {
+	public function getFullname($email) {
+
+		$sth = $this->dbh->prepare('SELECT * FROM ' . USERDETAILS_TABLE . ' WHERE email=:email');
+		$sth->bindParam(':email', $email);
+		
+		$sth->execute();
+		$result = $sth->fetch(PDO::FETCH_ASSOC);
+
+		return ($result) ? $result['fullname'] : '';
+	}
+
+	public function sendLetterToPostman ($data, $url) {
 
 		$mail = new PHPMailer();
 
@@ -58,16 +69,16 @@ class apiModel extends Model {
     	$mail->Username = SERVICE_EMAIL;
     	$mail->Password = SERVICE_EMAIL_PASSWORD;
     	$mail->setFrom(SERVICE_EMAIL, SERVICE_NAME);
-    	$mail->addAddress($email, 'Name');
+    	$mail->addAddress($data['email'], $data['fullName']);
     	$mail->Subject = PASSWORD_RESET;
-    	$mail->msgHTML($this->generateBody($url));
+    	$mail->msgHTML($this->generateBody($url, $data['fullName']));
 
         return ( $mail->send() ) ? 'true' : $mail->ErrorInfo;
  	}
 
- 	public function generateBody($url) {
+ 	public function generateBody($url, $name) {
 
- 		$html = 'Dear, XYZ<br />';
+ 		$html = 'Dear, ' . $name . '<br />';
 		$html .= '<p>Here is a link you can use within the next 24 hours to reset your password. If you haven\'t requested for this, you may ignore this email.</p>';
 		$html .= '<p><a href="' . $url . '">' . $url . '</a></p>';
 		$html .= '<p>Regards,<br />' . SERVICE_NAME . '</p>';
