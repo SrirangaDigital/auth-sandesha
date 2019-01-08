@@ -28,7 +28,7 @@ function validatePassword(){ (password.val() != confirmPassword.val()) ? confirm
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-6">
-			<h3>Password reset facility</h3>
+			<h3 class="text-center">Password reset facility</h3>
 			<div id="result" class="hide alert alert-danger">&nbsp;</div>
 			<form id="getResetPasswordForm" method="POST">
 				<div class="form-group">
@@ -41,7 +41,11 @@ function validatePassword(){ (password.val() != confirmPassword.val()) ? confirm
 				</div>
 				<input type="hidden" name="selector" id="type" value="<?=$data['selector']?>">
 				<input type="hidden" name="token" id="type" value="<?=$data['token']?>">
-				<button id="submit" type="submit" class="btn btn-primary">Submit</button>
+				<div class="row">
+    				<div class="col-12 text-center mb-3">
+						<button id="submit" type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

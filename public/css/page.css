@@ -7,7 +7,7 @@ body, html {
 
 /*Login form*/
 
-#signUpForm input, #signInForm, #passwordChangeForm, #passwordResetForm input{
+#signUpForm input, #signInForm, #passwordChangeForm, #passwordResetForm, #getResetPasswordForm input{
   height: 40px;
   font-size: 15px;
 }
