@@ -31,8 +31,25 @@ $(document).ready(function() {
 
 	$( "#signUpForm" ).submit(submitRegisterForm);
 	$( "#signInForm" ).submit(submitLoginForm);
+
+	password = $('#password');
+	confirmPassword = $('#confirmPassword');
+
+	password.on('change', validatePassword);
+	confirmPassword.on('change', validatePassword);
+
+	email = $('#email');
+	confirmEmail = $('#confirmEmail');
+
+	email.on('change', validateEmail);
+	confirmEmail.on('change', validateEmail);
 });
 
+// Validate Email
+function validateEmail(){ (email.val() != confirmEmail.val()) ? confirmEmail[0].setCustomValidity("Email Don't Match") : confirmEmail[0].setCustomValidity(''); }
+
+// Validate password
+function validatePassword(){ (password.val() != confirmPassword.val()) ? confirmPassword[0].setCustomValidity("Passwords Don't Match") : confirmPassword[0].setCustomValidity(''); }
 </script>
 
 <div class="container">
@@ -53,15 +70,23 @@ $(document).ready(function() {
 					<!-- <small id="fullnameHelp" class="form-text text-muted">Full name.</small> -->
 				</div>
 				<div class="form-group">
-					<input required type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Email">
-					<!-- <small id="emailHelp" class="form-text text-muted">Email address for registration.</small> -->
-				</div>
-				<div class="form-group">
 					<input pattern="\d*" class="form-control" type="text" name="phone" id="phone" aria-describedby="phoneHelp" placeholder="Contact Number" />
 					<!-- <small id="phoneHelp" class="form-text text-muted">Phone accepts only digits without spaces</small> -->
 				</div>
 				<div class="form-group">
+					<input required type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Email">
+					<!-- <small id="emailHelp" class="form-text text-muted">Email address for registration.</small> -->
+				</div>
+				<div class="form-group">
+					<input required type="email" class="form-control" id="confirmEmail" aria-describedby="emailHelp" placeholder="Confirm email">
+					<!-- <small id="emailHelp" class="form-text text-muted">Email address for registration.</small> -->
+				</div>
+				<div class="form-group">
 					<input required type="password" class="form-control" name="password" id="password" placeholder="Password">
+					<!-- <small id="passwordHelp" class="form-text text-muted">Password</small> -->
+				</div>
+				<div class="form-group">
+					<input required type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
 					<!-- <small id="passwordHelp" class="form-text text-muted">Password</small> -->
 				</div>
 				<input type="hidden" name="returnUrl" id="returnUrl" value="<?=$data['returnUrl']?>"><br />
