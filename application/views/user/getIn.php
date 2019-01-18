@@ -4,19 +4,19 @@ $(document).ready(function() {
 
 	$( ".trigger" ).on('click', function(){
 
-		$(this).css("color", "#4682B4");
+		$(".trigger").removeClass('orange');
 
 		if($(this).attr('id') == 'signIn'){
 
 			$('#signUpForm').hide();
 			$('#signInForm').show();
-			$('#signUp').css("color", "#6c757d");
+			$('#signIn').addClass('orange');
 		}
 		else {
 
 			$('#signInForm').hide();
 			$('#signUpForm').show();
-			$('#signIn').css("color", "#6c757d");
+			$('#signUp').addClass('orange');
 		}
 	});
 
@@ -46,16 +46,16 @@ $(document).ready(function() {
 });
 
 // Validate Email
-function validateEmail(){ (email.val() != confirmEmail.val()) ? confirmEmail[0].setCustomValidity("Email Don't Match") : confirmEmail[0].setCustomValidity(''); }
+function validateEmail(){ (email.val() != confirmEmail.val()) ? confirmEmail[0].setCustomValidity("Emails do not match") : confirmEmail[0].setCustomValidity(''); }
 
 // Validate password
-function validatePassword(){ (password.val() != confirmPassword.val()) ? confirmPassword[0].setCustomValidity("Passwords Don't Match") : confirmPassword[0].setCustomValidity(''); }
+function validatePassword(){ (password.val() != confirmPassword.val()) ? confirmPassword[0].setCustomValidity("Passwords do not match") : confirmPassword[0].setCustomValidity(''); }
 </script>
 
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-6">
-			<div class="row">
+			<div class="row mb-4">
 				<div class="col-6 custom text-center">
 					<h5><a class="trigger" id="signUp">Sign Up</a></h5>
 				</div>
@@ -63,7 +63,7 @@ function validatePassword(){ (password.val() != confirmPassword.val()) ? confirm
 					<h5><a class="trigger" id="signIn">Sign In</a></h5>
 				</div>
 			</div>
-			<form id="signUpForm" method="POST">
+			<form class="input-form" id="signUpForm" method="POST">
 				<div id="result" class="hide alert alert-danger">&nbsp;</div>
 				<div class="form-group">
 					<input required type="text" class="form-control" name="fullname" id="fullname" aria-describedby="fullnameHelp" placeholder="Full name">
@@ -91,12 +91,12 @@ function validatePassword(){ (password.val() != confirmPassword.val()) ? confirm
 				</div>
 				<input type="hidden" name="returnUrl" id="returnUrl" value="<?=$data['returnUrl']?>"><br />
 				<div class="row">
-    				<div class="col-12 text-center mb-3">
+    				<div class="col-12 text-center">
 						<button id="submit" type="submit" class="btn">Register</button>
 					</div>
 				</div>
 			</form>
-			<form id="signInForm" method="POST">
+			<form class="input-form" id="signInForm" method="POST">
 				<div id="lresult" class="hide alert alert-danger">&nbsp;</div>
 				<div class="form-group">
 					<!-- <label for="lemail">Email</label> -->
@@ -111,7 +111,7 @@ function validatePassword(){ (password.val() != confirmPassword.val()) ? confirm
 				<input type="hidden" name="type" id="type" value="<?=$data['type']?>">
 				<input type="hidden" name="lreturnUrl" id="lreturnUrl" value="<?=$data['returnUrl']?>">
 				<div class="row">
-    				<div class="col-12 text-center mb-3">
+    				<div class="col-12 text-center">
 						<button id="lsubmit" type="submit" class="btn">Login</button>
 					</div>
 				</div>
