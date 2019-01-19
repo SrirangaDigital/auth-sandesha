@@ -22,10 +22,12 @@ class apiModel extends Model {
 		// Include subscription details here, doing it here for the time being
 		$isOnlineSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'] . '&type=online';
 		$isPrintSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'] . '&type=print';
+		$wasSubscriberUrl = SUBSCRIPTION_URL . 'subscription/wasSubscriber/?email=' . $result['email'];
 
 		$_SESSION['subscription_type'] = [];
 		if($this->getDataFromCurl($isOnlineSubscriberUrl) == SUCCESS_PHRASE) array_push($_SESSION['subscription_type'], 'subscriber;online');
 		if($this->getDataFromCurl($isPrintSubscriberUrl) == SUCCESS_PHRASE) array_push($_SESSION['subscription_type'], 'subscriber;print');
+		if($this->getDataFromCurl($wasSubscriberUrl) == SUCCESS_PHRASE) array_push($_SESSION['subscription_type'], 'subscriber;old');
 	}
 
 	public function insertUserDetails($data){
@@ -82,7 +84,7 @@ class apiModel extends Model {
 
  	public function generateBody($url, $name) {
 
- 		$html = 'Dear, ' . $name . '<br />';
+ 		$html = 'Dear ' . $name . ',<br />';
 		$html .= '<p>Here is a link you can use within the next 24 hours to reset your password. If you haven\'t requested for this, you may ignore this email.</p>';
 		$html .= '<p><a href="' . $url . '">' . $url . '</a></p>';
 		$html .= '<p>Regards,<br />' . SERVICE_NAME . '</p>';
