@@ -20,8 +20,12 @@ class apiModel extends Model {
 		$_SESSION['user_details'] = $result;
 
 		// Include subscription details here, doing it here for the time being
-		$isSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'] . '&type=online';
-		if($this->getDataFromCurl($isSubscriberUrl) == SUCCESS_PHRASE) $_SESSION['subscription_type'] = 'subscriber';
+		$isOnlineSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'] . '&type=online';
+		$isPrintSubscriberUrl = SUBSCRIPTION_URL . 'subscription/isSubscriber/?email=' . $result['email'] . '&type=print';
+
+		$_SESSION['subscription_type'] = [];
+		if($this->getDataFromCurl($isOnlineSubscriberUrl) == SUCCESS_PHRASE) array_push($_SESSION['subscription_type'], 'subscriber;online');
+		if($this->getDataFromCurl($isPrintSubscriberUrl) == SUCCESS_PHRASE) array_push($_SESSION['subscription_type'], 'subscriber;print');
 	}
 
 	public function insertUserDetails($data){
