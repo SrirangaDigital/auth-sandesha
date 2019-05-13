@@ -1,3 +1,5 @@
+<?php header("X-Frame-Options: allow-from https://sambhashanasandesha.in/"); ?>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -17,10 +19,9 @@ function validatePassword(){ (newPassword.val() != confirmPassword.val()) ? conf
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-6"><br />
-			<h3 class="text-center">Change Password</h3>
 			<div id="result" class="hide alert alert-danger">&nbsp;</div>
 			<form id="passwordChangeForm" method="POST">
-				<div class="form-group">
+				<div class="form-group mt-3">
 					<label for="oldPassword">Old password</label>
 					<input required type="password" class="form-control" name="oldPassword" id="oldPassword" aria-describedby="oldPassword" placeholder="Enter old password"><br />
 					<label for="newPassword">New password</label>
@@ -29,7 +30,7 @@ function validatePassword(){ (newPassword.val() != confirmPassword.val()) ? conf
 					<input required type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
 				</div>
 				<div class="row">
-    				<div class="col-12 text-center mb-3">
+    				<div class="col-12 text-center mt-4">
 						<button id="submit" type="submit" class="btn btn-primary">Submit</button>
 					</div>
 				</div>
